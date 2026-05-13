@@ -51,7 +51,7 @@ export default async function HomePage() {
               Podcasts em destaque
             </h1>
             <p className="mt-1 text-sm text-zinc-600">
-              Deslize para ver mais — episódios em evidência.
+              Deslize para ver mais episódios em evidência.
             </p>
           </div>
           <Link

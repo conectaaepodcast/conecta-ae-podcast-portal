@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Tables } from "@/types/database";
 import { siteConfig } from "@/config/constants";
@@ -21,15 +22,31 @@ export function SiteFooter({ links }: Props) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-zinc-200 bg-zinc-50">
+    <footer className="mt-auto border-t border-white/10 bg-[#000000]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3">
-          <div>
-            <p className="text-sm font-semibold text-zinc-900">{siteConfig.name}</p>
-            <p className="mt-2 text-sm text-zinc-600">{siteConfig.description}</p>
+          <div className="space-y-4">
+            <Link
+              href="/"
+              className="relative block h-24 w-[min(260px,72vw)] outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400/80 sm:h-28"
+            >
+              <Image
+                src="/logov2.png"
+                alt=""
+                fill
+                className="object-contain object-left"
+                sizes="(max-width: 768px) 72vw, 260px"
+              />
+              <span className="sr-only">{siteConfig.name}</span>
+            </Link>
+            <p className="max-w-sm text-sm leading-relaxed text-zinc-400">
+              {siteConfig.description}
+            </p>
           </div>
           <div>
-            <p className="text-sm font-semibold text-zinc-900">Redes sociais</p>
+            <p className="text-sm font-semibold tracking-wide text-amber-300">
+              Redes sociais
+            </p>
             <ul className="mt-3 flex flex-wrap gap-3">
               {links.length === 0 ? (
                 <li className="text-sm text-zinc-500">Nenhum link cadastrado no painel.</li>
@@ -40,7 +57,7 @@ export function SiteFooter({ links }: Props) {
                       href={l.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-blue-700 underline-offset-4 hover:underline"
+                      className="text-sm font-medium text-zinc-300 underline-offset-4 transition-colors hover:text-amber-200 hover:underline"
                     >
                       {l.label?.trim() || platformLabel[l.platform] || l.platform}
                     </a>
@@ -50,7 +67,7 @@ export function SiteFooter({ links }: Props) {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold text-zinc-900">Parcerias</p>
+            <p className="text-sm font-semibold tracking-wide text-amber-300">Parcerias</p>
             <ul className="mt-3 space-y-2">
               {sobreConfig.parcerias.map((p) => (
                 <li key={p.nome}>
@@ -59,23 +76,26 @@ export function SiteFooter({ links }: Props) {
                       href={p.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-zinc-700 underline-offset-4 hover:underline"
+                      className="text-sm text-zinc-300 underline-offset-4 transition-colors hover:text-amber-200 hover:underline"
                     >
                       {p.nome}
                     </a>
                   ) : (
-                    <span className="text-sm text-zinc-700">{p.nome}</span>
+                    <span className="text-sm text-zinc-400">{p.nome}</span>
                   )}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 pt-6 text-xs text-zinc-500">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-zinc-500">
           <p>
             © {year} {sobreConfig.empresa.nome}
           </p>
-          <Link href="/admin/login" className="hover:text-zinc-800">
+          <Link
+            href="/admin/login"
+            className="text-zinc-400 transition-colors hover:text-amber-200/90"
+          >
             Admin
           </Link>
         </div>
