@@ -37,7 +37,7 @@ export default async function PodcastDetailPage({ params }: Props) {
     notFound();
   }
 
-  const related = await getRelatedPodcasts(podcast.id, 12);
+  const related = await getRelatedPodcasts(podcast.id, 3);
   const cover = getSiteImagePublicUrl(podcast.cover_image_path);
   const yt = getYoutubeEmbedId(podcast.youtube_video_id);
 

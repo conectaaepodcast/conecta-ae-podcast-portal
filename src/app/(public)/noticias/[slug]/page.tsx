@@ -35,7 +35,7 @@ export default async function NoticiaDetailPage({ params }: Props) {
     notFound();
   }
 
-  const related = await getRelatedNoticias(noticia.id, 12);
+  const related = await getRelatedNoticias(noticia.id, 3);
   const cover = getSiteImagePublicUrl(noticia.cover_image_path);
 
   return (
@@ -50,7 +50,7 @@ export default async function NoticiaDetailPage({ params }: Props) {
 
       <header className="border-b border-[#f4f4f5] pb-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
-          <div className="relative aspect-[384/480] w-full shrink-0 overflow-hidden rounded-2xl bg-[#f4f4f5] lg:mx-0 lg:w-[384px] lg:max-w-none">
+          <div className="relative aspect-[745/745] w-full shrink-0 overflow-hidden rounded-2xl bg-[#f4f4f5] lg:mx-0 lg:w-[384px] lg:max-w-none">
             {cover ? (
               <Image
                 src={cover}
