@@ -165,6 +165,7 @@ export type Database = {
           platform: SocialPlatform;
           label: string | null;
           url: string;
+          icon_path: string | null;
           ordem: number;
           is_active: boolean;
           created_at: string;
@@ -175,6 +176,7 @@ export type Database = {
           platform: SocialPlatform;
           label?: string | null;
           url: string;
+          icon_path?: string | null;
           ordem?: number;
           is_active?: boolean;
           created_at?: string;
@@ -185,6 +187,7 @@ export type Database = {
           platform?: SocialPlatform;
           label?: string | null;
           url?: string;
+          icon_path?: string | null;
           ordem?: number;
           is_active?: boolean;
           created_at?: string;

@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useActionState } from "react";
 import type { Tables } from "@/types/database";
 import { SubmitButton } from "@/components/admin/submit-button";
+import { getSiteImagePublicUrl } from "@/lib/supabase/storage";
 import { deleteSocialLink, saveSocialLink, type RedeActionState } from "./actions";
 
 type Row = Tables<"social_links">;
@@ -25,9 +27,11 @@ export function RedeForm({ initial, isAdmin }: Props) {
     error: null,
   } satisfies RedeActionState);
 
+  const iconPreviewUrl = getSiteImagePublicUrl(initial?.icon_path ?? null);
+
   return (
     <div className="space-y-8">
-      <form action={formAction} className="max-w-xl space-y-5">
+      <form action={formAction} encType="multipart/form-data" className="max-w-xl space-y-5">
         {initial?.id ? <input type="hidden" name="id" value={initial.id} /> : null}
         <div>
           <label htmlFor="platform" className="block text-sm font-medium text-[#3f3f46]">
@@ -72,6 +76,34 @@ export function RedeForm({ initial, isAdmin }: Props) {
             defaultValue={initial?.url ?? ""}
             className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm"
           />
+        </div>
+        <div>
+          <label htmlFor="icon" className="block text-sm font-medium text-[#3f3f46]">
+            Logo (ícone no rodapé)
+          </label>
+          <input
+            id="icon"
+            name="icon"
+            type="file"
+            accept="image/jpeg,image/png,image/webp,image/gif,image/svg+xml"
+            className="mt-1 block w-full text-sm text-[#52525b]"
+          />
+          {initial?.icon_path ? (
+            <p className="mt-1 text-xs text-[#71717a]">Arquivo atual: {initial.icon_path}</p>
+          ) : null}
+          {iconPreviewUrl ? (
+            <div className="mt-3">
+              <Image
+                src={iconPreviewUrl}
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+                sizes="40px"
+                unoptimized={(initial?.icon_path ?? "").toLowerCase().includes(".svg")}
+              />
+            </div>
+          ) : null}
         </div>
         <div>
           <label htmlFor="ordem" className="block text-sm font-medium text-[#3f3f46]">

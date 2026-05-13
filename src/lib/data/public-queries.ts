@@ -151,7 +151,7 @@ export async function getSocialLinksPublic() {
   const supabase = await createClient();
   const { data } = await supabase
     .from("social_links")
-    .select("id, platform, label, url, ordem")
+    .select("id, platform, label, url, icon_path, ordem")
     .eq("is_active", true)
     .order("ordem", { ascending: true });
 

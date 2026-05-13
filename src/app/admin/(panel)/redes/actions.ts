@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireStaffOrRedirect } from "@/lib/auth/staff";
+import { uploadSiteImage } from "@/lib/admin/upload-site-image";
 
 const platforms = ["instagram", "facebook", "youtube", "tiktok", "other"] as const;
 
@@ -31,6 +32,8 @@ export async function saveSocialLink(
   const { supabase } = await requireStaffOrRedirect();
 
   const idRaw = String(formData.get("id") ?? "").trim();
+  const iconRaw = formData.get("icon");
+  const icon = iconRaw instanceof File && iconRaw.size > 0 ? iconRaw : null;
 
   const parsed = schema.safeParse({
     id: idRaw === "" ? undefined : idRaw,
@@ -63,6 +66,15 @@ export async function saveSocialLink(
     if (error) {
       return { error: error.message };
     }
+    if (icon) {
+      const up = await uploadSiteImage(supabase, "social", v.id, icon);
+      if (up.error) {
+        return { error: up.error };
+      }
+      if (up.path) {
+        await supabase.from("social_links").update({ icon_path: up.path }).eq("id", v.id);
+      }
+    }
     revalidatePath("/");
     revalidatePath("/admin/redes");
     redirect(`/admin/redes/${v.id}`);
@@ -76,6 +88,16 @@ export async function saveSocialLink(
 
   if (insErr || !inserted) {
     return { error: insErr?.message ?? "Não foi possível criar." };
+  }
+
+  if (icon) {
+    const up = await uploadSiteImage(supabase, "social", inserted.id, icon);
+    if (up.error) {
+      return { error: up.error };
+    }
+    if (up.path) {
+      await supabase.from("social_links").update({ icon_path: up.path }).eq("id", inserted.id);
+    }
   }
 
   revalidatePath("/");

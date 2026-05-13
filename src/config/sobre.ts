@@ -2,6 +2,13 @@
  * Conteúdo estático da página Sobre (institucional + dados da empresa).
  * Imagens de equipe vêm da tabela `equipe`; escritório opcional via env.
  */
+export type ParceriaConfig = {
+  nome: string;
+  url?: string;
+  /** Caminho em `public/`, ex.: `/logo.png` */
+  imagem?: string;
+};
+
 export const sobreConfig = {
   textoInstitucional: [
     "Somos uma equipe dedicada a contar histórias que importam, com podcasts e notícias alinhados à nossa comunidade.",
@@ -15,7 +22,10 @@ export const sobreConfig = {
     endereco: "Brasil",
   },
   parcerias: [
-    { nome: "Parceiro exemplo A", url: "https://example.com" },
-    { nome: "Parceiro exemplo B", url: "https://example.org" },
-  ],
+    {
+      nome: "VRJ Veículos",
+      url: "https://www.veiculosvrj.com.br/",
+      imagem: "/parceriavrj.png",
+    },
+  ] satisfies ParceriaConfig[],
 };

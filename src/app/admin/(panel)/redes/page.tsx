@@ -14,7 +14,7 @@ export default async function AdminRedesPage() {
 
   const { data: rows, error } = await supabase
     .from("social_links")
-    .select("id, platform, label, url, ordem, is_active")
+    .select("id, platform, label, url, ordem, is_active, icon_path")
     .order("ordem", { ascending: true });
 
   if (error) {
@@ -43,6 +43,7 @@ export default async function AdminRedesPage() {
         <table className="min-w-full divide-y divide-[#e4e4e7] text-sm">
           <thead className="bg-[#fafafa] text-left text-xs font-medium uppercase tracking-wide text-[#71717a]">
             <tr>
+              <th className="px-4 py-3">Ícone</th>
               <th className="px-4 py-3">Plataforma</th>
               <th className="px-4 py-3">Rótulo</th>
               <th className="px-4 py-3">URL</th>
@@ -53,6 +54,7 @@ export default async function AdminRedesPage() {
           <tbody className="divide-y divide-[#f4f4f5] bg-[#ffffff]">
             {(rows ?? []).map((r) => (
               <tr key={r.id} className="hover:bg-[rgb(250_250_250_/0.8)]">
+                <td className="px-4 py-3 text-[#52525b]">{r.icon_path ? "Sim" : "—"}</td>
                 <td className="px-4 py-3 font-medium text-[#18181b]">
                   <Link
                     href={`/admin/redes/${r.id}`}
