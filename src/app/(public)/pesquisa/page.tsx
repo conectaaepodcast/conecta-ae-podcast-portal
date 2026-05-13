@@ -40,18 +40,18 @@ export default async function PesquisaPage({ searchParams }: Props) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-zinc-900 sm:text-3xl">Pesquisar</h1>
-      <p className="mt-1 text-sm text-zinc-600">
+      <h1 className="text-2xl font-bold text-[#18181b] sm:text-3xl">Pesquisar</h1>
+      <p className="mt-1 text-sm text-[#52525b]">
         Pesquisa global em podcasts e notícias (título, resumo e conteúdo).
       </p>
 
       <form
         method="get"
-        className="mt-8 space-y-4 rounded-2xl border border-zinc-200 bg-zinc-50/80 p-6"
+        className="mt-8 space-y-4 rounded-2xl border border-[#e4e4e7] bg-[rgb(250_250_250_/_0.8)] p-6"
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="min-w-0 flex-1">
-            <label htmlFor="q" className="block text-sm font-medium text-zinc-700">
+            <label htmlFor="q" className="block text-sm font-medium text-[#3f3f46]">
               Termo
             </label>
             <input
@@ -60,18 +60,18 @@ export default async function PesquisaPage({ searchParams }: Props) {
               type="search"
               defaultValue={q}
               placeholder="Ex.: entrevista, eleições…"
-              className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm"
+              className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm text-[#18181b]"
             />
           </div>
           <div>
-            <label htmlFor="tipo" className="block text-sm font-medium text-zinc-700">
+            <label htmlFor="tipo" className="block text-sm font-medium text-[#3f3f46]">
               Categoria
             </label>
             <select
               id="tipo"
               name="tipo"
               defaultValue={tipo}
-              className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm sm:w-48"
+              className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm sm:w-48 text-[#18181b]"
             >
               <option value="all">Tudo (#Podcast + #Notícia)</option>
               <option value="podcast">#Podcast</option>
@@ -80,7 +80,7 @@ export default async function PesquisaPage({ searchParams }: Props) {
           </div>
           <button
             type="submit"
-            className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800"
+            className="rounded-lg bg-[#18181b] px-5 py-2.5 text-sm font-medium text-[#ffffff] hover:bg-[#27272a]"
           >
             Pesquisar
           </button>
@@ -88,16 +88,16 @@ export default async function PesquisaPage({ searchParams }: Props) {
       </form>
 
       {!q ? (
-        <p className="mt-8 text-sm text-zinc-500">
+        <p className="mt-8 text-sm text-[#71717a]">
           Escreva um termo e escolha a categoria.
         </p>
       ) : (
         <div className="mt-10 space-y-12">
           {(tipo === "all" || tipo === "podcast") && (
             <section>
-              <h2 className="text-lg font-semibold text-zinc-900">
-                <span className="text-blue-800">#Podcast</span>{" "}
-                <span className="text-sm font-normal text-zinc-500">
+              <h2 className="text-lg font-semibold text-[#18181b]">
+                <span className="text-[#1e40af]">#Podcast</span>{" "}
+                <span className="text-sm font-normal text-[#71717a]">
                   ({results.podcasts.length})
                 </span>
               </h2>
@@ -107,15 +107,15 @@ export default async function PesquisaPage({ searchParams }: Props) {
                 ))}
               </div>
               {results.podcasts.length === 0 ? (
-                <p className="mt-2 text-sm text-zinc-500">Nenhum podcast encontrado.</p>
+                <p className="mt-2 text-sm text-[#71717a]">Nenhum podcast encontrado.</p>
               ) : null}
             </section>
           )}
           {(tipo === "all" || tipo === "noticia") && (
             <section>
-              <h2 className="text-lg font-semibold text-zinc-900">
-                <span className="text-emerald-800">#Notícia</span>{" "}
-                <span className="text-sm font-normal text-zinc-500">
+              <h2 className="text-lg font-semibold text-[#18181b]">
+                <span className="text-[#065f46]">#Notícia</span>{" "}
+                <span className="text-sm font-normal text-[#71717a]">
                   ({results.noticias.length})
                 </span>
               </h2>
@@ -125,7 +125,7 @@ export default async function PesquisaPage({ searchParams }: Props) {
                 ))}
               </div>
               {results.noticias.length === 0 ? (
-                <p className="mt-2 text-sm text-zinc-500">
+                <p className="mt-2 text-sm text-[#71717a]">
                   Nenhuma notícia encontrada.
                 </p>
               ) : null}

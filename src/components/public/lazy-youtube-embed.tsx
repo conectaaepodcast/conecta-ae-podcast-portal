@@ -30,7 +30,7 @@ export function LazyYoutubeEmbed({ videoId, title }: Props) {
   }, []);
 
   return (
-    <div ref={ref} className="relative aspect-video overflow-hidden rounded-xl bg-zinc-900 shadow-lg">
+    <div ref={ref} className="relative aspect-video overflow-hidden rounded-xl bg-[#18181b] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)]">
       {show ? (
         <iframe
           title={title}
@@ -41,7 +41,7 @@ export function LazyYoutubeEmbed({ videoId, title }: Props) {
           allowFullScreen
         />
       ) : (
-        <div className="absolute inset-0 flex items-center justify-center bg-zinc-800 text-sm text-zinc-400">
+        <div className="absolute inset-0 flex items-center justify-center bg-[#27272a] text-sm text-[#a1a1aa]">
           Carregando vídeo…
         </div>
       )}

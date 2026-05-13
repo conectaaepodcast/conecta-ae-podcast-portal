@@ -9,7 +9,7 @@ export default async function PublicLayout({ children }: { children: ReactNode }
   const links = await getSocialLinksPublic();
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div className="flex min-h-0 flex-1 flex-col bg-[#ffffff] text-[#171717] [color-scheme:light]">
       <SiteHeader />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6">
         {children}

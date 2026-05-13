@@ -15,9 +15,9 @@ export function NoticiaCard({ item }: { item: Card }) {
   return (
     <Link
       href={`/noticias/${item.slug}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition hover:border-zinc-300 hover:shadow-md"
+      className="group flex flex-col overflow-hidden rounded-xl border border-[#e4e4e7] bg-[#ffffff] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:border-[#d4d4d8] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]"
     >
-      <div className="relative aspect-[16/10] bg-zinc-100">
+      <div className="relative aspect-[16/10] bg-[#f4f4f5]">
         {img ? (
           <Image
             src={img}
@@ -27,17 +27,17 @@ export function NoticiaCard({ item }: { item: Card }) {
             sizes="(max-width:768px) 100vw, 33vw"
           />
         ) : (
-          <div className="flex h-full items-center justify-center text-sm text-zinc-400">
+          <div className="flex h-full items-center justify-center text-sm text-[#a1a1aa]">
             Sem imagem
           </div>
         )}
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h2 className="line-clamp-2 text-base font-semibold text-zinc-900 group-hover:text-blue-800">
+        <h2 className="line-clamp-2 text-base font-semibold text-[#18181b] group-hover:text-[#1e40af]">
           {item.title}
         </h2>
         {item.summary ? (
-          <p className="mt-2 line-clamp-3 flex-1 text-sm text-zinc-600">
+          <p className="mt-2 line-clamp-3 flex-1 text-sm text-[#52525b]">
             {item.summary}
           </p>
         ) : null}

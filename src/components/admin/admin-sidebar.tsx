@@ -12,15 +12,15 @@ const links = [
 
 export function AdminSidebar({ role }: { role: StaffRole }) {
   return (
-    <aside className="flex w-56 shrink-0 flex-col border-r border-zinc-200 bg-zinc-50">
-      <div className="border-b border-zinc-200 px-4 py-4">
-        <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
+    <aside className="flex w-56 shrink-0 flex-col border-r border-[#e4e4e7] bg-[#fafafa]">
+      <div className="border-b border-[#e4e4e7] px-4 py-4">
+        <p className="text-xs font-medium uppercase tracking-wide text-[#71717a]">
           Admin
         </p>
-        <p className="mt-1 text-sm font-semibold text-zinc-900">Portal</p>
-        <p className="mt-0.5 text-xs text-zinc-500">
+        <p className="mt-1 text-sm font-semibold text-[#18181b]">Portal</p>
+        <p className="mt-0.5 text-xs text-[#71717a]">
           Função:{" "}
-          <span className="text-zinc-800">
+          <span className="text-[#27272a]">
             {role === "admin" ? "Administrador" : "Editor"}
           </span>
         </p>
@@ -30,16 +30,16 @@ export function AdminSidebar({ role }: { role: StaffRole }) {
           <Link
             key={l.href}
             href={l.href}
-            className="rounded-lg px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200/80 hover:text-zinc-950"
+            className="rounded-lg px-3 py-2 text-sm font-medium text-[#3f3f46] hover:bg-[rgb(228_228_231_/0.8)] hover:text-[#09090b]"
           >
             {l.label}
           </Link>
         ))}
       </nav>
-      <div className="border-t border-zinc-200 p-3">
+      <div className="border-t border-[#e4e4e7] p-3">
         <Link
           href="/"
-          className="mb-2 block rounded-lg px-3 py-2 text-sm text-zinc-600 hover:bg-zinc-200/60 hover:text-zinc-900"
+          className="mb-2 block rounded-lg px-3 py-2 text-sm text-[#52525b] hover:bg-[rgb(228_228_231_/0.6)] hover:text-[#18181b]"
         >
           Ver site
         </Link>

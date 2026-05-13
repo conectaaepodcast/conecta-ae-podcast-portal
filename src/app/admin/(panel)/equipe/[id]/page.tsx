@@ -26,13 +26,13 @@ export default async function EditEquipePage({ params, searchParams }: Props) {
   return (
     <div className="p-8">
       <div className="mb-6 text-sm">
-        <Link href="/admin/equipe" className="text-blue-700 hover:underline">
+        <Link href="/admin/equipe" className="text-[#1d4ed8] hover:underline">
           ← Equipe
         </Link>
       </div>
-      <h1 className="text-2xl font-semibold text-zinc-900">Editar membro</h1>
+      <h1 className="text-2xl font-semibold text-[#18181b]">Editar membro</h1>
       {err ? (
-        <p className="mt-2 rounded-md bg-red-50 px-3 py-2 text-sm text-red-800">
+        <p className="mt-2 rounded-md bg-[#fef2f2] px-3 py-2 text-sm text-[#991b1b]">
           {decodeURIComponent(err)}
         </p>
       ) : null}

@@ -25,8 +25,8 @@ function navLinkClass(active: boolean) {
   return cn(
     "rounded-lg px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200",
     active
-      ? "bg-white/10 text-[var(--brand-gold)] shadow-[inset_0_0_0_1px_rgba(224,190,77,0.35)]"
-      : "text-zinc-300 hover:bg-white/5 hover:text-[var(--brand-gold)]",
+      ? "bg-[rgba(255,255,255,0.1)] text-[var(--brand-gold)] shadow-[inset_0_0_0_1px_rgba(224,190,77,0.35)]"
+      : "text-[#d4d4d8] hover:bg-[rgba(255,255,255,0.05)] hover:text-[var(--brand-gold)]",
   );
 }
 
@@ -63,7 +63,7 @@ export function SiteHeader() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-40 border-b border-white/10 bg-[#000000] shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md"
+      className="sticky top-0 z-40 border-b border-[rgba(255,255,255,0.1)] bg-[#000000] shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md"
     >
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-[5.25rem] items-center justify-between gap-4 sm:h-[6rem]">
@@ -98,7 +98,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-[5px] rounded-lg border border-white/10 bg-white/5 text-[var(--brand-gold)] transition hover:border-[var(--brand-gold)]/35 hover:bg-white/10 md:hidden"
+            className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-[5px] rounded-lg border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-[var(--brand-gold)] transition hover:border-[var(--brand-gold)]/35 hover:bg-[rgba(255,255,255,0.1)] md:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
@@ -106,19 +106,19 @@ export function SiteHeader() {
           >
             <span
               className={cn(
-                "block h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ease-out",
+                "block h-0.5 w-5 rounded-full bg-[var(--brand-gold)] transition-transform duration-200 ease-out",
                 menuOpen && "translate-y-[7px] rotate-45",
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-5 rounded-full bg-current transition-opacity duration-200",
+                "block h-0.5 w-5 rounded-full bg-[var(--brand-gold)] transition-opacity duration-200",
                 menuOpen && "opacity-0",
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-5 rounded-full bg-current transition-transform duration-200 ease-out",
+                "block h-0.5 w-5 rounded-full bg-[var(--brand-gold)] transition-transform duration-200 ease-out",
                 menuOpen && "-translate-y-[7px] -rotate-45",
               )}
             />
@@ -128,7 +128,7 @@ export function SiteHeader() {
         <div
           id="mobile-nav"
           className={cn(
-            "absolute left-0 right-0 top-full z-50 overflow-hidden border-b border-white/10 bg-[#0a0a0a] shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-[max-height,opacity] duration-300 ease-out md:hidden",
+            "absolute left-0 right-0 top-full z-50 overflow-hidden border-b border-[rgba(255,255,255,0.1)] bg-[#0a0a0a] shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-[max-height,opacity] duration-300 ease-out md:hidden",
             menuOpen
               ? "max-h-[min(75vh,26rem)] opacity-100"
               : "pointer-events-none max-h-0 opacity-0",
@@ -147,7 +147,7 @@ export function SiteHeader() {
                     "rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
                     active
                       ? "bg-[var(--brand-gold)]/15 text-[var(--brand-gold)]"
-                      : "text-zinc-200 hover:bg-white/5 hover:text-white",
+                      : "text-[#e4e4e7] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#ffffff]",
                   )}
                   onClick={closeMenu}
                 >
@@ -156,7 +156,7 @@ export function SiteHeader() {
               );
             })}
           </nav>
-          <p className="border-t border-white/10 px-4 py-3 text-center text-[11px] leading-relaxed text-zinc-500">
+          <p className="border-t border-[rgba(255,255,255,0.1)] px-4 py-3 text-center text-[11px] leading-relaxed text-[#71717a]">
             Conexões · Histórias · Oportunidades
           </p>
         </div>

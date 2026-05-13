@@ -22,7 +22,7 @@ export function SiteFooter({ links }: Props) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-white/10 bg-[#000000]">
+    <footer className="mt-auto border-t border-[rgba(255,255,255,0.1)] bg-[#000000]">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
@@ -39,7 +39,7 @@ export function SiteFooter({ links }: Props) {
               />
               <span className="sr-only">{siteConfig.name}</span>
             </Link>
-            <p className="max-w-sm text-sm leading-relaxed text-zinc-400">
+            <p className="max-w-sm text-sm leading-relaxed text-[#a1a1aa]">
               {siteConfig.description}
             </p>
           </div>
@@ -49,7 +49,7 @@ export function SiteFooter({ links }: Props) {
             </p>
             <ul className="mt-3 flex flex-wrap gap-3">
               {links.length === 0 ? (
-                <li className="text-sm text-zinc-500">Nenhum link cadastrado no painel.</li>
+                <li className="text-sm text-[#71717a]">Nenhum link cadastrado no painel.</li>
               ) : (
                 links.map((l) => (
                   <li key={`${l.platform}-${l.url}`}>
@@ -57,7 +57,7 @@ export function SiteFooter({ links }: Props) {
                       href={l.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-zinc-300 underline-offset-4 transition-colors hover:text-[var(--brand-gold)] hover:underline"
+                      className="text-sm font-medium text-[#d4d4d8] underline-offset-4 transition-colors hover:text-[var(--brand-gold)] hover:underline"
                     >
                       {l.label?.trim() || platformLabel[l.platform] || l.platform}
                     </a>
@@ -76,25 +76,25 @@ export function SiteFooter({ links }: Props) {
                       href={p.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-zinc-300 underline-offset-4 transition-colors hover:text-[var(--brand-gold)] hover:underline"
+                      className="text-sm text-[#d4d4d8] underline-offset-4 transition-colors hover:text-[var(--brand-gold)] hover:underline"
                     >
                       {p.nome}
                     </a>
                   ) : (
-                    <span className="text-sm text-zinc-400">{p.nome}</span>
+                    <span className="text-sm text-[#a1a1aa]">{p.nome}</span>
                   )}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-zinc-500">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[rgba(255,255,255,0.1)] pt-6 text-xs text-[#71717a]">
           <p>
             © {year} {sobreConfig.empresa.nome}
           </p>
           <Link
             href="/admin/login"
-            className="text-zinc-400 transition-colors hover:text-[var(--brand-gold)]"
+            className="text-[#a1a1aa] transition-colors hover:text-[var(--brand-gold)]"
           >
             Admin
           </Link>

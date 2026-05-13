@@ -25,16 +25,16 @@ export default async function AdminLoginPage({ searchParams }: Props) {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-xl border border-zinc-200 bg-white p-8 shadow-sm">
-      <h1 className="text-center text-xl font-semibold text-zinc-900">
+    <div className="w-full max-w-sm rounded-xl border border-[#e4e4e7] bg-[#ffffff] p-8 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+      <h1 className="text-center text-xl font-semibold text-[#18181b]">
         Área administrativa
       </h1>
-      <p className="mt-1 text-center text-sm text-zinc-500">
+      <p className="mt-1 text-center text-sm text-[#71717a]">
         Faça login para continuar
       </p>
       <LoginForm next={sp.next} />
-      <p className="mt-6 text-center text-xs text-zinc-400">
-        <Link href="/" className="underline hover:text-zinc-600">
+      <p className="mt-6 text-center text-xs text-[#a1a1aa]">
+        <Link href="/" className="underline hover:text-[#52525b]">
           Voltar ao site
         </Link>
       </p>

@@ -44,7 +44,7 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
       <form action={formAction} className="max-w-3xl space-y-5">
         {initial?.id ? <input type="hidden" name="id" value={initial.id} /> : null}
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-zinc-700">
+          <label htmlFor="title" className="block text-sm font-medium text-[#3f3f46]">
             Título
           </label>
           <input
@@ -53,12 +53,12 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
             name="title"
             required
             defaultValue={initial?.title ?? ""}
-            className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm"
+            className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm"
           />
         </div>
         <div className="flex flex-wrap items-end gap-2">
           <div className="min-w-0 flex-1">
-            <label htmlFor="slug" className="block text-sm font-medium text-zinc-700">
+            <label htmlFor="slug" className="block text-sm font-medium text-[#3f3f46]">
               Slug (URL)
             </label>
             <input
@@ -67,19 +67,19 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
               name="slug"
               required
               defaultValue={initial?.slug ?? ""}
-              className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 font-mono text-sm"
+              className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 font-mono text-sm"
             />
           </div>
           <button
             type="button"
             onClick={fillSlugFromTitle}
-            className="rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-800 hover:bg-zinc-50"
+            className="rounded-lg border border-[#d4d4d8] bg-[#ffffff] px-3 py-2 text-sm text-[#27272a] hover:bg-[#fafafa]"
           >
             Gerar slug
           </button>
         </div>
         <div>
-          <label htmlFor="summary" className="block text-sm font-medium text-zinc-700">
+          <label htmlFor="summary" className="block text-sm font-medium text-[#3f3f46]">
             Resumo
           </label>
           <textarea
@@ -87,11 +87,11 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
             name="summary"
             rows={3}
             defaultValue={initial?.summary ?? ""}
-            className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm"
+            className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm"
           />
         </div>
         <div>
-          <label htmlFor="content" className="block text-sm font-medium text-zinc-700">
+          <label htmlFor="content" className="block text-sm font-medium text-[#3f3f46]">
             Conteúdo
           </label>
           <textarea
@@ -99,13 +99,13 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
             name="content"
             rows={12}
             defaultValue={initial?.content ?? ""}
-            className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm font-mono"
+            className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm font-mono"
           />
         </div>
         <div>
           <label
             htmlFor="published_at"
-            className="block text-sm font-medium text-zinc-700"
+            className="block text-sm font-medium text-[#3f3f46]"
           >
             Data de publicação
           </label>
@@ -114,11 +114,11 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
             name="published_at"
             type="datetime-local"
             defaultValue={toDatetimeLocal(initial?.published_at)}
-            className="mt-1 w-full max-w-xs rounded-lg border border-zinc-300 px-3 py-2 text-sm"
+            className="mt-1 w-full max-w-xs rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm"
           />
         </div>
         <div>
-          <label htmlFor="cover" className="block text-sm font-medium text-zinc-700">
+          <label htmlFor="cover" className="block text-sm font-medium text-[#3f3f46]">
             Imagem de capa
           </label>
           <input
@@ -126,54 +126,54 @@ export function NoticiaForm({ initial, isAdmin }: Props) {
             name="cover"
             type="file"
             accept="image/jpeg,image/png,image/webp,image/gif"
-            className="mt-1 block w-full text-sm text-zinc-600"
+            className="mt-1 block w-full text-sm text-[#52525b]"
           />
           {initial?.cover_image_path ? (
-            <p className="mt-1 text-xs text-zinc-500">
+            <p className="mt-1 text-xs text-[#71717a]">
               Atual: {initial.cover_image_path}
             </p>
           ) : null}
         </div>
         <div className="flex flex-wrap gap-6">
-          <label className="flex items-center gap-2 text-sm text-zinc-800">
+          <label className="flex items-center gap-2 text-sm text-[#27272a]">
             <input
               type="checkbox"
               name="is_published"
               defaultChecked={initial?.is_published ?? false}
-              className="rounded border-zinc-400"
+              className="rounded border-[#a1a1aa]"
             />
             Publicado
           </label>
-          <label className="flex items-center gap-2 text-sm text-zinc-800">
+          <label className="flex items-center gap-2 text-sm text-[#27272a]">
             <input
               type="checkbox"
               name="is_featured"
               defaultChecked={initial?.is_featured ?? false}
-              className="rounded border-zinc-400"
+              className="rounded border-[#a1a1aa]"
             />
             Destaque (home)
           </label>
         </div>
         {state.error ? (
           <p
-            className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-800"
+            className="rounded-md bg-[#fef2f2] px-3 py-2 text-sm text-[#991b1b]"
             role="alert"
           >
             {state.error}
           </p>
         ) : null}
-        <SubmitButton className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-zinc-800">
+        <SubmitButton className="rounded-lg bg-[#18181b] px-5 py-2.5 text-sm font-medium text-[#ffffff] hover:bg-[#27272a]">
           Salvar
         </SubmitButton>
       </form>
 
       {isAdmin && initial?.id ? (
-        <form action={deleteNoticia} className="border-t border-zinc-200 pt-6">
+        <form action={deleteNoticia} className="border-t border-[#e4e4e7] pt-6">
           <input type="hidden" name="id" value={initial.id} />
-          <p className="text-sm text-zinc-600">Zona perigosa</p>
+          <p className="text-sm text-[#52525b]">Zona perigosa</p>
           <button
             type="submit"
-            className="mt-2 rounded-lg border border-red-300 bg-red-50 px-4 py-2 text-sm font-medium text-red-800 hover:bg-red-100"
+            className="mt-2 rounded-lg border border-[#fca5a5] bg-[#fef2f2] px-4 py-2 text-sm font-medium text-[#991b1b] hover:bg-[#fee2e2]"
           >
             Excluir notícia
           </button>

@@ -34,18 +34,18 @@ export function PaginationBar({ path, page, total, pageSize, query }: Props) {
       {page > 1 ? (
         <Link
           href={href(page - 1)}
-          className="rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-800 hover:bg-zinc-50"
+          className="rounded-lg border border-[#d4d4d8] bg-[#ffffff] px-3 py-1.5 text-sm font-medium text-[#27272a] hover:bg-[#fafafa]"
         >
           Anterior
         </Link>
       ) : null}
-      <span className="px-2 text-sm text-zinc-600">
+      <span className="px-2 text-sm text-[#52525b]">
         Página {page} de {totalPages}
       </span>
       {page < totalPages ? (
         <Link
           href={href(page + 1)}
-          className="rounded-lg border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-800 hover:bg-zinc-50"
+          className="rounded-lg border border-[#d4d4d8] bg-[#ffffff] px-3 py-1.5 text-sm font-medium text-[#27272a] hover:bg-[#fafafa]"
         >
           Próximo
         </Link>

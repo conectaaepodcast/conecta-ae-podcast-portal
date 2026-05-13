@@ -104,8 +104,8 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
   if (n === 0) {
     return (
       <FullBleed>
-        <div className="border-b border-zinc-100 bg-background px-4 py-16 text-center sm:px-6">
-          <p className="mx-auto max-w-lg text-sm text-zinc-600">
+        <div className="border-b border-[#f4f4f5] bg-[#ffffff] px-4 py-16 text-center sm:px-6">
+          <p className="mx-auto max-w-lg text-sm text-[#52525b]">
             Ainda não há podcasts em destaque. Publique conteúdo no painel admin.
           </p>
         </div>
@@ -119,7 +119,7 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
   return (
     <FullBleed>
       <section
-        className="relative overflow-visible border-b border-zinc-100 bg-background"
+        className="relative overflow-visible border-b border-[#f4f4f5] bg-[#ffffff]"
         role="region"
         aria-roledescription="carousel"
         aria-label="Podcasts em destaque"
@@ -145,7 +145,7 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
           >
             <Link
               href={`/podcasts/${item.slug}`}
-              className="relative mx-auto aspect-[384/480] w-full max-w-[min(100%,384px)] overflow-hidden rounded-xl border border-[var(--brand-gold)]/35 shadow-md shadow-zinc-200/90 ring-1 ring-[var(--brand-gold)]/10 md:mx-0 md:max-w-[384px]"
+              className="relative mx-auto aspect-[384/480] w-full max-w-[min(100%,384px)] overflow-hidden rounded-xl border border-[var(--brand-gold)]/35 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)] shadow-[0_6px_20px_rgba(228,228,231,0.85)] ring-1 ring-[var(--brand-gold)]/10 md:mx-0 md:max-w-[384px]"
               aria-label={`Capa: ${item.title}`}
             >
               {img ? (
@@ -158,14 +158,14 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
                   priority={index === 0}
                 />
               ) : (
-                <div className="flex h-full items-center justify-center bg-zinc-200 text-sm text-zinc-500">
+                <div className="flex h-full items-center justify-center bg-[#e4e4e7] text-sm text-[#71717a]">
                   Sem imagem
                 </div>
               )}
             </Link>
 
             <div className="flex flex-col items-center text-center md:items-start md:text-left">
-              <h3 className="hidden text-balance text-2xl font-bold leading-tight tracking-tight text-zinc-900 md:block md:text-3xl lg:text-4xl lg:leading-tight">
+              <h3 className="hidden text-balance text-2xl font-bold leading-tight tracking-tight text-[#18181b] md:block md:text-3xl lg:text-4xl lg:leading-tight">
                 <Link
                   href={`/podcasts/${item.slug}`}
                   className="transition-colors hover:text-[var(--brand-gold)]"
@@ -174,20 +174,20 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
                 </Link>
               </h3>
               {item.summary ? (
-                <p className="hidden max-w-2xl text-pretty text-sm leading-relaxed text-zinc-600 md:mt-4 md:block md:text-base">
+                <p className="hidden max-w-2xl text-pretty text-sm leading-relaxed text-[#52525b] md:mt-4 md:block md:text-base">
                   {item.summary}
                 </p>
               ) : (
-                <p className="hidden text-sm text-zinc-500 md:mt-4 md:block">Sem resumo para este episódio.</p>
+                <p className="hidden text-sm text-[#71717a] md:mt-4 md:block">Sem resumo para este episódio.</p>
               )}
-              <div className="mt-0 sm:mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:mt-8 md:justify-start">
+              <div className="mt-0 flex flex-wrap items-center justify-center gap-3 sm:mt-6 sm:gap-4 md:mt-8 md:justify-start">
                 <Link
                   href={`/podcasts/${item.slug}`}
                   className={cn(
-                    "inline-flex min-h-[2.75rem] items-center justify-center rounded-full px-8 py-2.5 text-sm font-semibold text-white",
+                    "inline-flex min-h-[2.75rem] items-center justify-center rounded-full px-8 py-2.5 text-sm font-semibold text-[#ffffff]",
                     "bg-metallic-gold shadow-metallic-gold",
                     "border border-[var(--brand-gold-dark)]/50",
-                    "transition hover:brightness-105 hover:shadow-md",
+                    "transition hover:brightness-105 hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]",
                     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-gold)]/70",
                   )}
                 >
@@ -196,8 +196,8 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
                 <Link
                   href="/podcasts"
                   className={cn(
-                    "inline-flex min-h-[2.75rem] items-center justify-center rounded-full border-2 border-[var(--brand-gold)] bg-background px-8 py-2.5 text-sm font-semibold text-[var(--brand-gold)]",
-                    "transition hover:bg-zinc-50 hover:border-[var(--brand-gold-dark)] hover:text-[var(--brand-gold-dark)]",
+                    "inline-flex min-h-[2.75rem] items-center justify-center rounded-full border-2 border-[var(--brand-gold)] bg-[#ffffff] px-8 py-2.5 text-sm font-semibold text-[var(--brand-gold)]",
+                    "transition hover:bg-[#fafafa] hover:border-[var(--brand-gold-dark)] hover:text-[var(--brand-gold-dark)]",
                     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--brand-gold)]/70",
                   )}
                 >
@@ -223,7 +223,7 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
                   "h-2.5 w-2.5 rounded-full transition-all",
                   i === index
                     ? "scale-110 bg-[var(--brand-gold)] shadow-[0_0_12px_rgba(224,190,77,0.55)]"
-                    : "bg-zinc-300 hover:bg-zinc-400",
+                    : "bg-[#d4d4d8] hover:bg-[#a1a1aa]",
                 )}
                 onClick={() => goTo(i)}
               />
@@ -233,7 +233,7 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
 
         <button
           type="button"
-          className="pointer-events-auto absolute top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:border-[var(--brand-gold)]/45 hover:text-[var(--brand-gold)] md:left-6 md:flex lg:left-8"
+          className="pointer-events-auto absolute top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#e4e4e7] bg-[#ffffff] text-[#3f3f46] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)] transition hover:border-[var(--brand-gold)]/45 hover:text-[var(--brand-gold)] md:left-6 md:flex lg:left-8"
           aria-label="Episódio anterior"
           onClick={() => go(-1)}
         >
@@ -241,7 +241,7 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
         </button>
         <button
           type="button"
-          className="pointer-events-auto absolute top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-700 shadow-md transition hover:border-[var(--brand-gold)]/45 hover:text-[var(--brand-gold)] md:right-6 md:flex lg:right-8"
+          className="pointer-events-auto absolute top-1/2 z-30 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#e4e4e7] bg-[#ffffff] text-[#3f3f46] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)] transition hover:border-[var(--brand-gold)]/45 hover:text-[var(--brand-gold)] md:right-6 md:flex lg:right-8"
           aria-label="Próximo episódio"
           onClick={() => go(1)}
         >

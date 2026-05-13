@@ -6,7 +6,7 @@ export default async function AdminPanelLayout({ children }: { children: ReactNo
   const { role } = await requireStaffOrRedirect();
 
   return (
-    <div className="flex min-h-screen bg-white">
+    <div className="flex min-h-screen bg-[#ffffff]">
       <AdminSidebar role={role} />
       <div className="min-w-0 flex-1">{children}</div>
     </div>

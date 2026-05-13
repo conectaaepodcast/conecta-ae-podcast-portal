@@ -6,7 +6,7 @@ export default async function NewEquipePage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-semibold text-zinc-900">Novo membro</h1>
+      <h1 className="text-2xl font-semibold text-[#18181b]">Novo membro</h1>
       <div className="mt-8">
         <EquipeForm isAdmin={role === "admin"} />
       </div>

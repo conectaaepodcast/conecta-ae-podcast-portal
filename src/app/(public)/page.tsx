@@ -51,10 +51,10 @@ export default async function HomePage() {
       <section>
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-zinc-900 sm:text-2xl">
+            <h2 className="text-xl font-bold text-[#18181b] sm:text-2xl">
               Últimas notícias
             </h2>
-            <p className="mt-1 text-sm text-zinc-600">
+            <p className="mt-1 text-sm text-[#52525b]">
               As seis publicações mais recentes.
             </p>
           </div>
@@ -71,13 +71,13 @@ export default async function HomePage() {
           ))}
         </div>
         {noticias.length === 0 ? (
-          <p className="text-sm text-zinc-500">Ainda não há notícias publicadas.</p>
+          <p className="text-sm text-[#71717a]">Ainda não há notícias publicadas.</p>
         ) : null}
       </section>
 
-      <section className="rounded-2xl border border-zinc-200 bg-zinc-50/80 p-6 sm:p-8">
-        <h2 className="text-lg font-semibold text-zinc-900">Newsletter</h2>
-        <p className="mt-2 max-w-xl text-sm text-zinc-600">
+      <section className="rounded-2xl border border-[#e4e4e7] bg-[rgb(250_250_250_/_0.8)] p-6 sm:p-8">
+        <h2 className="text-lg font-semibold text-[#18181b]">Newsletter</h2>
+        <p className="mt-2 max-w-xl text-sm text-[#52525b]">
           Em breve será possível se inscrever para receber atualizações por e-mail. Enquanto isso, siga-nos nas
           redes sociais no rodapé.
         </p>
@@ -86,12 +86,12 @@ export default async function HomePage() {
             type="email"
             disabled
             placeholder="o@seu.email"
-            className="flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-500"
+            className="flex-1 rounded-lg border border-[#e4e4e7] bg-[#ffffff] px-3 py-2 text-sm text-[#71717a]"
           />
           <button
             type="button"
             disabled
-            className="rounded-lg bg-zinc-300 px-4 py-2 text-sm font-medium text-zinc-500"
+            className="rounded-lg bg-[#d4d4d8] px-4 py-2 text-sm font-medium text-[#71717a]"
           >
             Em breve
           </button>

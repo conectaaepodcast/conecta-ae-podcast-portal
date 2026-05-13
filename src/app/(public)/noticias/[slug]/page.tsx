@@ -41,14 +41,14 @@ export default async function NoticiaDetailPage({ params }: Props) {
   return (
     <article>
       <div className="mb-6 text-sm">
-        <Link href="/noticias" className="text-blue-700 hover:underline">
+        <Link href="/noticias" className="text-[#1d4ed8] hover:underline">
           ← Notícias
         </Link>
       </div>
 
-      <header className="border-b border-zinc-100 pb-8">
+      <header className="border-b border-[#f4f4f5] pb-8">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-100 lg:aspect-[4/3]">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#f4f4f5] lg:aspect-[4/3]">
             {cover ? (
               <Image
                 src={cover}
@@ -59,20 +59,20 @@ export default async function NoticiaDetailPage({ params }: Props) {
                 sizes="(max-width:1024px) 100vw, 50vw"
               />
             ) : (
-              <div className="flex h-full items-center justify-center text-zinc-400">
+              <div className="flex h-full items-center justify-center text-[#a1a1aa]">
                 Sem imagem
               </div>
             )}
           </div>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+            <h1 className="text-3xl font-bold tracking-tight text-[#18181b] sm:text-4xl">
               {noticia.title}
             </h1>
             {noticia.summary ? (
-              <p className="mt-4 text-lg text-zinc-600">{noticia.summary}</p>
+              <p className="mt-4 text-lg text-[#52525b]">{noticia.summary}</p>
             ) : null}
             {noticia.published_at ? (
-              <p className="mt-4 text-sm text-zinc-500">
+              <p className="mt-4 text-sm text-[#71717a]">
                 {new Date(noticia.published_at).toLocaleDateString("pt-BR", {
                   day: "numeric",
                   month: "long",
@@ -85,14 +85,14 @@ export default async function NoticiaDetailPage({ params }: Props) {
       </header>
 
       {noticia.content ? (
-        <div className="mt-10 max-w-3xl whitespace-pre-wrap text-base leading-relaxed text-zinc-800">
+        <div className="mt-10 max-w-3xl whitespace-pre-wrap text-base leading-relaxed text-[#27272a]">
           {noticia.content}
         </div>
       ) : null}
 
-      <section className="mt-16 border-t border-zinc-200 pt-12">
-        <h2 className="text-xl font-bold text-zinc-900">Veja também</h2>
-        <p className="mt-1 text-sm text-zinc-600">Últimas notícias publicadas.</p>
+      <section className="mt-16 border-t border-[#e4e4e7] pt-12">
+        <h2 className="text-xl font-bold text-[#18181b]">Veja também</h2>
+        <p className="mt-1 text-sm text-[#52525b]">Últimas notícias publicadas.</p>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((item) => (
             <NoticiaCard key={item.id} item={item} />

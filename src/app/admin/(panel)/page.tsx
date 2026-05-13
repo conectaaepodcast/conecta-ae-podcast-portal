@@ -20,8 +20,8 @@ export default async function AdminHomePage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-semibold text-zinc-900">Painel</h1>
-      <p className="mt-1 text-sm text-zinc-600">
+      <h1 className="text-2xl font-semibold text-[#18181b]">Painel</h1>
+      <p className="mt-1 text-sm text-[#52525b]">
         Resumo do conteúdo gerido no Supabase.
       </p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -29,10 +29,10 @@ export default async function AdminHomePage() {
           <li key={s.href}>
             <Link
               href={s.href}
-              className="block rounded-xl border border-zinc-200 bg-zinc-50 p-5 transition hover:border-zinc-300 hover:bg-zinc-100"
+              className="block rounded-xl border border-[#e4e4e7] bg-[#fafafa] p-5 transition hover:border-[#d4d4d8] hover:bg-[#f4f4f5]"
             >
-              <p className="text-sm font-medium text-zinc-500">{s.label}</p>
-              <p className="mt-2 text-3xl font-semibold tabular-nums text-zinc-900">
+              <p className="text-sm font-medium text-[#71717a]">{s.label}</p>
+              <p className="mt-2 text-3xl font-semibold tabular-nums text-[#18181b]">
                 {s.count}
               </p>
             </Link>

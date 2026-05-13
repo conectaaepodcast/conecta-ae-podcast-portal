@@ -22,7 +22,7 @@ export function SignOutButton() {
       type="button"
       onClick={() => void signOut()}
       disabled={loading}
-      className="inline-flex items-center justify-center rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50"
+      className="inline-flex items-center justify-center rounded-lg bg-[#18181b] px-4 py-2 text-sm font-medium text-[#ffffff] hover:bg-[#27272a] disabled:opacity-50"
     >
       {loading ? "Saindo…" : "Sair"}
     </button>

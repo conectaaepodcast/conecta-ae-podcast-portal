@@ -43,7 +43,7 @@ export function LoginForm({ next }: Props) {
   return (
     <form className="mt-8 space-y-4" onSubmit={onSubmit}>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="email" className="block text-sm font-medium text-[#3f3f46]">
           E-mail
         </label>
         <input
@@ -52,11 +52,11 @@ export function LoginForm({ next }: Props) {
           type="email"
           autoComplete="email"
           required
-          className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none ring-zinc-400 focus:ring-2"
+          className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm outline-none ring-[#a1a1aa] focus:ring-2"
         />
       </div>
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-zinc-700">
+        <label htmlFor="password" className="block text-sm font-medium text-[#3f3f46]">
           Senha
         </label>
         <input
@@ -65,18 +65,18 @@ export function LoginForm({ next }: Props) {
           type="password"
           autoComplete="current-password"
           required
-          className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none ring-zinc-400 focus:ring-2"
+          className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm outline-none ring-[#a1a1aa] focus:ring-2"
         />
       </div>
       {error ? (
-        <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+        <p className="rounded-md bg-[#fef2f2] px-3 py-2 text-sm text-[#b91c1c]" role="alert">
           {error}
         </p>
       ) : null}
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-lg bg-zinc-900 py-2.5 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50"
+        className="w-full rounded-lg bg-[#18181b] py-2.5 text-sm font-medium text-[#ffffff] hover:bg-[#27272a] disabled:opacity-50"
       >
         {loading ? "Entrando…" : "Entrar"}
       </button>

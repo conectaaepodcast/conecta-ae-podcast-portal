@@ -27,8 +27,8 @@ export default async function PodcastsListPage({ searchParams }: Props) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-zinc-900 sm:text-3xl">Podcasts</h1>
-      <p className="mt-1 text-sm text-zinc-600">Do mais recente ao mais antigo.</p>
+      <h1 className="text-2xl font-bold text-[#18181b] sm:text-3xl">Podcasts</h1>
+      <p className="mt-1 text-sm text-[#52525b]">Do mais recente ao mais antigo.</p>
 
       <form
         method="get"
@@ -39,18 +39,18 @@ export default async function PodcastsListPage({ searchParams }: Props) {
           name="q"
           defaultValue={q}
           placeholder="Pesquisar por título ou texto…"
-          className="flex-1 rounded-lg border border-zinc-300 px-3 py-2 text-sm"
+          className="flex-1 rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm text-[#18181b]"
         />
         <button
           type="submit"
-          className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
+          className="rounded-lg bg-[#18181b] px-4 py-2 text-sm font-medium text-[#ffffff] hover:bg-[#27272a]"
         >
           Pesquisar
         </button>
       </form>
 
       {error ? (
-        <p className="mt-6 text-sm text-red-600" role="alert">
+        <p className="mt-6 text-sm text-[#dc2626]" role="alert">
           {error}
         </p>
       ) : null}
@@ -62,7 +62,7 @@ export default async function PodcastsListPage({ searchParams }: Props) {
       </div>
 
       {rows.length === 0 && !error ? (
-        <p className="mt-8 text-center text-sm text-zinc-500">Nenhum resultado.</p>
+        <p className="mt-8 text-center text-sm text-[#71717a]">Nenhum resultado.</p>
       ) : null}
 
       <PaginationBar
