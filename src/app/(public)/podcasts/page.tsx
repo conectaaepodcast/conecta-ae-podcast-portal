@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PodcastCard } from "@/components/public/podcast-card";
+import { PublicBreadcrumb } from "@/components/public/public-breadcrumb";
 import { PaginationBar } from "@/components/public/pagination-bar";
 import { getPodcastsPage } from "@/lib/data/public-queries";
 import { buildListMetadata } from "@/lib/seo/article-metadata";
@@ -27,6 +28,9 @@ export default async function PodcastsListPage({ searchParams }: Props) {
 
   return (
     <div>
+      <PublicBreadcrumb
+        items={[{ label: "Home", href: "/" }, { label: "Podcasts" }]}
+      />
       <h1 className="text-2xl font-bold text-[#18181b] sm:text-3xl">Podcasts</h1>
       <p className="mt-1 text-sm text-[#52525b]">Do mais recente ao mais antigo.</p>
 

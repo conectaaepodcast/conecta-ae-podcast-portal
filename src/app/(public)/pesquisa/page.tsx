@@ -73,9 +73,9 @@ export default async function PesquisaPage({ searchParams }: Props) {
               defaultValue={tipo}
               className="mt-1 w-full rounded-lg border border-[#d4d4d8] px-3 py-2 text-sm sm:w-48 text-[#18181b]"
             >
-              <option value="all">Tudo (#Podcast + #Notícia)</option>
-              <option value="podcast">#Podcast</option>
-              <option value="noticia">#Notícia</option>
+              <option value="all">Tudo</option>
+              <option value="podcast">Podcast</option>
+              <option value="noticia">Notícia</option>
             </select>
           </div>
           <button
@@ -96,7 +96,7 @@ export default async function PesquisaPage({ searchParams }: Props) {
           {(tipo === "all" || tipo === "podcast") && (
             <section>
               <h2 className="text-lg font-semibold text-[#18181b]">
-                <span className="text-[#1e40af]">#Podcast</span>{" "}
+                <span className="text-[#18181b]">Podcast</span>{" "}
                 <span className="text-sm font-normal text-[#71717a]">
                   ({results.podcasts.length})
                 </span>
@@ -114,7 +114,7 @@ export default async function PesquisaPage({ searchParams }: Props) {
           {(tipo === "all" || tipo === "noticia") && (
             <section>
               <h2 className="text-lg font-semibold text-[#18181b]">
-                <span className="text-[#065f46]">#Notícia</span>{" "}
+                <span className="text-[#18181b]">Notícia</span>{" "}
                 <span className="text-sm font-normal text-[#71717a]">
                   ({results.noticias.length})
                 </span>

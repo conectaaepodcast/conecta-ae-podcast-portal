@@ -23,7 +23,7 @@ export function PodcastCard({
       href={`${hrefPrefix}/${item.slug}`}
       className="group flex flex-col overflow-hidden rounded-xl border border-[#e4e4e7] bg-[#ffffff] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:border-[#d4d4d8] hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-2px_rgba(0,0,0,0.1)]"
     >
-      <div className="relative aspect-[16/10] bg-[#f4f4f5]">
+      <div className="relative aspect-[384/480] bg-[#f4f4f5]">
         {img ? (
           <Image
             src={img}
@@ -39,7 +39,7 @@ export function PodcastCard({
         )}
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h2 className="line-clamp-2 text-base font-semibold text-[#18181b] group-hover:text-[#1e40af]">
+        <h2 className="line-clamp-2 text-base font-semibold text-[#18181b] group-hover:text-[#E0BE4D]">
           {item.title}
         </h2>
         {item.summary ? (

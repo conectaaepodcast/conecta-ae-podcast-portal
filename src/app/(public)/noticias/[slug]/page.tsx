@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getNoticiaBySlug, getRelatedNoticias } from "@/lib/data/public-queries";
 import { getSiteImagePublicUrl } from "@/lib/supabase/storage";
 import { siteConfig } from "@/config/constants";
 import { NoticiaCard } from "@/components/public/noticia-card";
+import { PublicBreadcrumb } from "@/components/public/public-breadcrumb";
 import { buildArticleMetadata } from "@/lib/seo/article-metadata";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -40,15 +40,17 @@ export default async function NoticiaDetailPage({ params }: Props) {
 
   return (
     <article>
-      <div className="mb-6 text-sm">
-        <Link href="/noticias" className="text-[#1d4ed8] hover:underline">
-          ← Notícias
-        </Link>
-      </div>
+      <PublicBreadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Notícias", href: "/noticias" },
+          { label: noticia.title },
+        ]}
+      />
 
       <header className="border-b border-[#f4f4f5] pb-8">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[#f4f4f5] lg:aspect-[4/3]">
+        <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
+          <div className="relative aspect-[384/480] w-full shrink-0 overflow-hidden rounded-2xl bg-[#f4f4f5] lg:mx-0 lg:w-[384px] lg:max-w-none">
             {cover ? (
               <Image
                 src={cover}
@@ -56,7 +58,7 @@ export default async function NoticiaDetailPage({ params }: Props) {
                 fill
                 className="object-cover"
                 priority
-                sizes="(max-width:1024px) 100vw, 50vw"
+                sizes="(max-width:1023px) 100vw, 384px"
               />
             ) : (
               <div className="flex h-full items-center justify-center text-[#a1a1aa]">
@@ -64,7 +66,7 @@ export default async function NoticiaDetailPage({ params }: Props) {
               </div>
             )}
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <h1 className="text-3xl font-bold tracking-tight text-[#18181b] sm:text-4xl">
               {noticia.title}
             </h1>
