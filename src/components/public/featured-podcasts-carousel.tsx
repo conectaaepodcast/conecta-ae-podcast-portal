@@ -141,7 +141,7 @@ export function FeaturedPodcastsCarousel({ items }: Props) {
         <div className="relative z-0 mx-auto max-w-6xl px-4 pb-6 pt-4 sm:px-6 sm:pb-8 sm:pt-6 md:pb-14 md:pt-12">
           <div
             key={item.slug}
-            className="mx-auto grid max-w-5xl gap-6 md:grid-cols-[minmax(0,384px)_1fr] md:items-center md:gap-10 lg:gap-14"
+            className="mx-0 grid max-w-5xl gap-6 md:grid-cols-[minmax(0,384px)_1fr] md:items-center md:gap-10 lg:gap-14"
           >
             <Link
               href={`/podcasts/${item.slug}`}
