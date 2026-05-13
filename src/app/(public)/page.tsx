@@ -44,23 +44,7 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section>
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
-              Podcasts em destaque
-            </h1>
-            <p className="mt-1 text-sm text-zinc-600">
-              Deslize para ver mais episódios em evidência.
-            </p>
-          </div>
-          <Link
-            href="/podcasts"
-            className="text-sm font-medium text-blue-700 hover:underline"
-          >
-            Ver todos os podcasts
-          </Link>
-        </div>
+      <section className="space-y-4">
         <FeaturedPodcastsCarousel items={featured} />
       </section>
 
@@ -76,7 +60,7 @@ export default async function HomePage() {
           </div>
           <Link
             href="/noticias"
-            className="text-sm font-medium text-blue-700 hover:underline"
+            className="text-sm font-medium text-[var(--brand-gold)] underline-offset-4 transition hover:text-[var(--brand-gold-dark)] hover:underline"
           >
             Ver todas
           </Link>

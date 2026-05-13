@@ -25,8 +25,8 @@ function navLinkClass(active: boolean) {
   return cn(
     "rounded-lg px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200",
     active
-      ? "bg-white/10 text-amber-300 shadow-[inset_0_0_0_1px_rgba(251,191,36,0.25)]"
-      : "text-zinc-300 hover:bg-white/5 hover:text-amber-200/90",
+      ? "bg-white/10 text-[var(--brand-gold)] shadow-[inset_0_0_0_1px_rgba(224,190,77,0.35)]"
+      : "text-zinc-300 hover:bg-white/5 hover:text-[var(--brand-gold)]",
   );
 }
 
@@ -69,7 +69,7 @@ export function SiteHeader() {
         <div className="flex h-[5.25rem] items-center justify-between gap-4 sm:h-[6rem]">
           <Link
             href="/"
-            className="group relative flex shrink-0 items-center gap-2 outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400/80"
+            className="group relative flex shrink-0 items-center gap-2 outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)]/75"
             onClick={closeMenu}
           >
             <span className="relative h-14 w-[min(280px,64vw)] sm:h-16 md:h-18">
@@ -98,7 +98,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-[5px] rounded-lg border border-white/10 bg-white/5 text-amber-400 transition hover:border-amber-400/30 hover:bg-white/10 md:hidden"
+            className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-[5px] rounded-lg border border-white/10 bg-white/5 text-[var(--brand-gold)] transition hover:border-[var(--brand-gold)]/35 hover:bg-white/10 md:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
@@ -146,7 +146,7 @@ export function SiteHeader() {
                   className={cn(
                     "rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
                     active
-                      ? "bg-amber-400/15 text-amber-200"
+                      ? "bg-[var(--brand-gold)]/15 text-[var(--brand-gold)]"
                       : "text-zinc-200 hover:bg-white/5 hover:text-white",
                   )}
                   onClick={closeMenu}

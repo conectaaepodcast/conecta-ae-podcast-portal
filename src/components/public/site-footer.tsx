@@ -28,7 +28,7 @@ export function SiteFooter({ links }: Props) {
           <div className="space-y-4">
             <Link
               href="/"
-              className="relative block h-24 w-[min(260px,72vw)] outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-400/80 sm:h-28"
+              className="relative block h-24 w-[min(260px,72vw)] outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--brand-gold)]/75 sm:h-28"
             >
               <Image
                 src="/logov2.png"
@@ -44,7 +44,7 @@ export function SiteFooter({ links }: Props) {
             </p>
           </div>
           <div>
-            <p className="text-sm font-semibold tracking-wide text-amber-300">
+            <p className="text-sm font-semibold tracking-wide text-[var(--brand-gold)]">
               Redes sociais
             </p>
             <ul className="mt-3 flex flex-wrap gap-3">
@@ -57,7 +57,7 @@ export function SiteFooter({ links }: Props) {
                       href={l.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-zinc-300 underline-offset-4 transition-colors hover:text-amber-200 hover:underline"
+                      className="text-sm font-medium text-zinc-300 underline-offset-4 transition-colors hover:text-[var(--brand-gold)] hover:underline"
                     >
                       {l.label?.trim() || platformLabel[l.platform] || l.platform}
                     </a>
@@ -67,7 +67,7 @@ export function SiteFooter({ links }: Props) {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold tracking-wide text-amber-300">Parcerias</p>
+            <p className="text-sm font-semibold tracking-wide text-[var(--brand-gold)]">Parcerias</p>
             <ul className="mt-3 space-y-2">
               {sobreConfig.parcerias.map((p) => (
                 <li key={p.nome}>
@@ -76,7 +76,7 @@ export function SiteFooter({ links }: Props) {
                       href={p.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-zinc-300 underline-offset-4 transition-colors hover:text-amber-200 hover:underline"
+                      className="text-sm text-zinc-300 underline-offset-4 transition-colors hover:text-[var(--brand-gold)] hover:underline"
                     >
                       {p.nome}
                     </a>
@@ -94,7 +94,7 @@ export function SiteFooter({ links }: Props) {
           </p>
           <Link
             href="/admin/login"
-            className="text-zinc-400 transition-colors hover:text-amber-200/90"
+            className="text-zinc-400 transition-colors hover:text-[var(--brand-gold)]"
           >
             Admin
           </Link>
