@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# tipos Supabase gerados (evita ficheiros partidos se o CLI pedir confirmação interativa)
+src/types/database.gen.ts

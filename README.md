@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Conecta Aê — Portal de podcasts e notícias
 
-## Getting Started
+Stack: **Next.js** (App Router), **TypeScript**, **Tailwind**, **Supabase** (Auth, DB, Storage), deploy na **Vercel**.
 
-First, run the development server:
+## Desenvolvimento
 
 ```bash
+npm install
+cp .env.example .env.local
+# Edite .env.local com URL e chave anon do Supabase + NEXT_PUBLIC_SITE_URL
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Comando            | Descrição                                           |
+| ------------------ | --------------------------------------------------- |
+| `npm run dev`      | Servidor de desenvolvimento                         |
+| `npm run build`    | Build de produção                                   |
+| `npm run start`    | Servidor após build                                 |
+| `npm run lint`     | ESLint                                              |
+| `npm run format`   | Prettier                                            |
+| `npm run db:types` | Tipos TypeScript a partir do Supabase (CLI linkada) |
 
-## Learn More
+## Deploy (Fase 6)
 
-To learn more about Next.js, take a look at the following resources:
+Passo a passo completo: **[docs/DEPLOY.md](./docs/DEPLOY.md)** (Vercel, variáveis, domínio, Supabase, checklist e manutenção).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Health check em produção: `GET /api/health`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Documentação Next.js
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Documentação Next.js](https://nextjs.org/docs) · [Deploy na Vercel](https://vercel.com/docs)
