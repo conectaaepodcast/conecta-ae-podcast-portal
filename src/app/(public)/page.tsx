@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FeaturedPodcastsCarousel } from "@/components/public/featured-podcasts-carousel";
@@ -20,6 +21,8 @@ export default async function HomePage() {
   ]);
 
   const siteUrl = getSiteUrl().toString();
+  const participarPodcastAlt =
+    "Deseja participar do podcast Conecta Aê? Clique em Quero participar e preencha o formulário de interesse.";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -44,11 +47,39 @@ export default async function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="space-y-4">
+      <section className="space-y-4 mb-8 sm:mb-12">
         <FeaturedPodcastsCarousel items={featured} />
       </section>
 
-      <section>
+      <section
+        aria-label="Participar do podcast Conecta Aê"
+        className="ml-[calc(50%-50vw)] w-screen max-w-[100vw] mb-8 sm:mb-12"
+      >
+        <div className="relative hidden aspect-[2000/400] w-full md:block">
+          <Image
+            src="/participarpodcastdesktop.png"
+            alt={participarPodcastAlt}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+            unoptimized
+          />
+        </div>
+        <div className="relative aspect-[1000/1000] w-full md:hidden">
+          <Image
+            src="/participarpodcastmobile.png"
+            alt={participarPodcastAlt}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+            unoptimized
+          />
+        </div>
+      </section>
+
+      <section className="mb-8 sm:mb-12">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-bold text-[#18181b] sm:text-2xl">
