@@ -28,7 +28,8 @@ No projeto Vercel: **Settings → Environment Variables**.
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Production, Preview | Chave **anon** (pública)                                                                              |
 | `NEXT_PUBLIC_SITE_URL`          | **Production**      | URL final com `https://` (ex.: `https://www.seudominio.com.br`)                                       |
 | `NEXT_PUBLIC_SITE_URL`          | **Preview**         | Pode ser a URL de preview da Vercel (ex.: `https://seu-projeto.vercel.app`) para SEO/canonical em PRs |
-| `NEXT_PUBLIC_OFFICE_IMAGE_URL`  | Opcional            | Imagem da página Sobre                                                                                |
+
+A imagem do escritório na página **Sobre** configura-se em `src/config/sobre.ts` (`imagemEscritorio`: ficheiro em `public/` ou URL https pública, ex. Supabase Storage).
 
 **Não** defina `SUPABASE_SERVICE_ROLE_KEY` na Vercel a menos que tenha rotas server-only que precisem dela — e nunca com prefixo `NEXT_PUBLIC_`.
 
