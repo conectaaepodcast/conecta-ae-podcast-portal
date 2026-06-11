@@ -9,9 +9,23 @@ export type ParceriaConfig = {
   imagem?: string;
 };
 
+export type EquipeMembroConfig = {
+  cargo: "diretor" | "jornalista";
+  nome: string;
+  descricao: string;
+  instagram_url?: string;
+};
+
 export type SobreConfig = {
   /** Opcional: `/arquivo.webp` em `public/` ou URL https pública (ex. Supabase Storage). */
   imagemEscritorio?: string;
+  /** Foto de grupo exibida na seção Equipe, junto às descrições dos colaboradores. */
+  imagemEquipe?: string;
+  /**
+   * Opcional: se tiver entradas, substitui a lista vinda do painel (Admin → Equipe).
+   * Deixe de fora ou use `[]` para mostrar os membros cadastrados no banco.
+   */
+  equipe?: EquipeMembroConfig[];
   textoInstitucional: string[];
   empresa: {
     nome: string;
@@ -28,7 +42,28 @@ export type SobreConfig = {
 };
 
 export const sobreConfig: SobreConfig = {
-  imagemEscritorio: "/escritorio.png", // ficheiro em public/ ou URL https (Supabase)
+  imagemEscritorio: "/escritorio.png",
+  imagemEquipe: "/equipe.jpeg",
+  equipe: [
+    {
+      cargo: "diretor",
+      nome: "Marcelo de Souza",
+      descricao:
+        "Diretor Geral Técnico, responsável pela operação, transmissão e qualidade técnica de cada episódio.",
+    },
+    {
+      cargo: "diretor",
+      nome: "Carolina Garcia",
+      descricao:
+        "Diretora de Produção, responsável pela organização, planejamento estratégico, relacionamento com convidados e divulgação do podcast.",
+    },
+    {
+      cargo: "jornalista",
+      nome: "Fernanda Mazurek",
+      descricao:
+        "Apresentadora e comunicadora do Conecta Aê Podcast, conduzindo entrevistas e criando conexões que inspiram histórias.",
+    },
+  ],
   textoInstitucional: [
     "Somos uma equipe dedicada a contar histórias que importam, com podcasts e notícias alinhados à nossa comunidade. Este portal reúne episódios, artigos e informações sobre nosso trabalho editorial.",
     "O Conecta Aê Podcast nasceu com o propósito de informar, conectar e entreter. Sua trajetória começou no final de 2024, inicialmente com o nome Alpha Cast. Após uma pausa em suas atividades, o projeto retornou em setembro de 2025, agora com uma nova identidade e proposta, tornando-se o Conecta Aê, com a participação de Fernanda Mazurek e Marcos Pitta na apresentação.",

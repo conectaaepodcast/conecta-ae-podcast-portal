@@ -30,6 +30,7 @@ type EmpresaRedeLinha = {
 export default async function SobrePage() {
   const [equipe, socialLinks] = await Promise.all([getEquipePublic(), getSocialLinksPublic()]);
   const officeSrc = sobreConfig.imagemEscritorio?.trim();
+  const equipeSrc = sobreConfig.imagemEquipe?.trim();
 
   const redesFromPainel: EmpresaRedeLinha[] = socialLinks.map((l) => ({
     label: l.label?.trim() || platformLabel[l.platform] || l.platform,
@@ -44,8 +45,20 @@ export default async function SobrePage() {
         }))
       : redesFromPainel;
 
-  const diretores = equipe.filter((m) => m.cargo === "diretor");
-  const jornalistas = equipe.filter((m) => m.cargo === "jornalista");
+  const equipeLista =
+    sobreConfig.equipe && sobreConfig.equipe.length > 0
+      ? sobreConfig.equipe.map((m, i) => ({
+          id: `config-${i}`,
+          cargo: m.cargo,
+          nome: m.nome,
+          descricao: m.descricao,
+          instagram_url: m.instagram_url ?? null,
+          foto_path: null,
+        }))
+      : equipe;
+
+  const diretores = equipeLista.filter((m) => m.cargo === "diretor");
+  const jornalistas = equipeLista.filter((m) => m.cargo === "jornalista");
 
   return (
     <div className="space-y-14">
@@ -144,40 +157,53 @@ export default async function SobrePage() {
 
       <section>
         <h2 className="text-xl font-bold text-[#18181b]">Equipe</h2>
-        <div className="mt-6 space-y-10">
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#71717a]">
-              Direção
-            </h3>
-            <ul className="mt-4 grid gap-6 sm:grid-cols-2">
-              {diretores.map((m) => (
-                <li key={m.id}>
-                  <TeamMemberCard member={m} />
-                </li>
-              ))}
-            </ul>
-            {diretores.length === 0 ? (
-              <p className="mt-2 text-sm text-[#71717a]">
-                Nenhum membro cadastrado como diretor.
-              </p>
-            ) : null}
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#71717a]">
-              Jornalismo
-            </h3>
-            <ul className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {jornalistas.map((m) => (
-                <li key={m.id}>
-                  <TeamMemberCard member={m} />
-                </li>
-              ))}
-            </ul>
-            {jornalistas.length === 0 ? (
-              <p className="mt-2 text-sm text-[#71717a]">
-                Sem jornalistas na lista pública.
-              </p>
-            ) : null}
+        <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start">
+          {equipeSrc ? (
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#f4f4f5] sm:aspect-[4/5] lg:sticky lg:top-8">
+              <Image
+                src={equipeSrc}
+                alt="Equipe do Conecta Aê Podcast"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          ) : null}
+          <div className="space-y-10">
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-[#71717a]">
+                Direção
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {diretores.map((m) => (
+                  <li key={m.id}>
+                    <TeamMemberCard member={m} />
+                  </li>
+                ))}
+              </ul>
+              {diretores.length === 0 ? (
+                <p className="mt-2 text-sm text-[#71717a]">
+                  Nenhum membro cadastrado como diretor.
+                </p>
+              ) : null}
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-[#71717a]">
+                Jornalismo
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {jornalistas.map((m) => (
+                  <li key={m.id}>
+                    <TeamMemberCard member={m} />
+                  </li>
+                ))}
+              </ul>
+              {jornalistas.length === 0 ? (
+                <p className="mt-2 text-sm text-[#71717a]">
+                  Sem jornalistas na lista pública.
+                </p>
+              ) : null}
+            </div>
           </div>
         </div>
       </section>
@@ -198,17 +224,13 @@ function TeamMemberCard({
   const foto = getSiteImagePublicUrl(member.foto_path);
 
   return (
-    <div className="flex gap-4 rounded-xl border border-[#e4e4e7] bg-[#ffffff] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
-      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-[#f4f4f5]">
-        {foto ? (
+    <div className="rounded-xl border border-[#e4e4e7] bg-[#ffffff] p-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+      {foto ? (
+        <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full bg-[#f4f4f5]">
           <Image src={foto} alt="" fill className="object-cover" sizes="96px" />
-        ) : (
-          <div className="flex h-full items-center justify-center text-xs text-[#a1a1aa]">
-            —
-          </div>
-        )}
-      </div>
-      <div className="min-w-0 flex-1">
+        </div>
+      ) : null}
+      <div className="min-w-0">
         <p className="font-semibold text-[#18181b]">{member.nome}</p>
         {member.descricao ? (
           <p className="mt-1 text-sm leading-relaxed text-[#52525b]">

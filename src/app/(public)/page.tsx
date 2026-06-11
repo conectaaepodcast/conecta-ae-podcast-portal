@@ -55,28 +55,35 @@ export default async function HomePage() {
         aria-label="Participar do podcast Conecta Aê"
         className="ml-[calc(50%-50vw)] w-screen max-w-[100vw] mb-8 sm:mb-12"
       >
-        <div className="relative hidden aspect-[2000/400] w-full md:block">
-          <Image
-            src="/participarpodcastdesktop.png"
-            alt={participarPodcastAlt}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-            unoptimized
-          />
-        </div>
-        <div className="relative aspect-[1000/1000] w-full md:hidden">
-          <Image
-            src="/participarpodcastmobile.png"
-            alt={participarPodcastAlt}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-            unoptimized
-          />
-        </div>
+        <a
+          href={siteConfig.participarPodcastFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand-gold)]"
+        >
+          <div className="relative hidden aspect-[2000/400] w-full md:block">
+            <Image
+              src="/participarpodcastdesktop.png"
+              alt={participarPodcastAlt}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+              unoptimized
+            />
+          </div>
+          <div className="relative aspect-[1000/1000] w-full md:hidden">
+            <Image
+              src="/participarpodcastmobile.png"
+              alt={participarPodcastAlt}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+              unoptimized
+            />
+          </div>
+        </a>
       </section>
 
       <section className="mb-8 sm:mb-12">
@@ -106,7 +113,7 @@ export default async function HomePage() {
         ) : null}
       </section>
 
-      <section className="rounded-2xl border border-[#e4e4e7] bg-[rgb(250_250_250_/_0.8)] p-6 sm:p-8">
+      {/* <section className="rounded-2xl border border-[#e4e4e7] bg-[rgb(250_250_250_/_0.8)] p-6 sm:p-8">
         <h2 className="text-lg font-semibold text-[#18181b]">Newsletter</h2>
         <p className="mt-2 max-w-xl text-sm text-[#52525b]">
           Em breve será possível se inscrever para receber atualizações por e-mail. Enquanto isso, siga-nos nas
@@ -127,7 +134,7 @@ export default async function HomePage() {
             Em breve
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
